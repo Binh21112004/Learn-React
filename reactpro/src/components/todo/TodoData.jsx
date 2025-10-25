@@ -1,10 +1,18 @@
 const TodoData = (props) => {
-  const {name,age,data} = props;
+  const {todoList, setTodoList } = props;
+  const handleDelete = (id) => {
+    setTodoList([...todoList].filter(item => item.id !== id));
+  }
   return (
     <div className="todo-data">
-      <div>My name is {name}</div>
-      <div>Learning React</div>
-      <div>Watching Youtube</div>
+
+      {todoList.map((item) => (
+        <div className="todo-item" key={item.id}>
+          <div>{item.name}</div>
+          <button onClick={() => handleDelete(item.id)}>Delete</button>
+        </div>
+      ))}
+
     </div>
   )
 }
