@@ -1,26 +1,34 @@
 import { Button, Input } from 'antd';
+import { useState } from 'react';
 const UserForm = () => {
+  const [fullName, setFullName] = useState("");
+  const [email,setEmail] = useState("");
+  const [password, setPassWord] = useState("");
+  const [phone, setPhone] = useState("");
+  const handleClickBtn = () => {
+    
+  }
   return(
     <div className="user-form" style={{margin: "20px 0"}}>
       <div style={{display: "flex", gap: "15px", flexDirection: "column"}}>
         <div>
           <span>Full Name</span>
-          <Input/>
+          <Input value={fullName} onChange={(e) => {setFullName(e.target.value)}}/>
         </div>
         <div>
           <span>Email</span>
-          <Input/>
+          <Input value={email} onChange={(e) => {setEmail(e.target.value)}}/>
         </div>
         <div>
           <span>Password</span>
-          <Input.Password/>
+          <Input.Password value={password} onChange={(e) => {setPassWord(e.target.value)}}/>
         </div>
         <div>
           <span>Phone number</span>
-          <Input/>
+          <Input value={phone} onChange={(e) => {setPhone(e.target.value)}}/>
         </div>
         <div>
-          <Button type='primary'>Create User</Button>
+          <Button type='primary' onClick={handleClickBtn}>Create User</Button>
         </div>
       </div>
     </div>
